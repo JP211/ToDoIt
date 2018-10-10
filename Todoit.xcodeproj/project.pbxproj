@@ -109,8 +109,8 @@
 		EB01D3D12165A15F00250FB0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EBF8D9D72168877100A57547 /* CategoryViewController.swift */,
 				EBC89DFB216C383C00720A42 /* SwipeTableViewController.swift */,
+				EBF8D9D72168877100A57547 /* CategoryViewController.swift */,
 				EB01D3BE2162E7DF00250FB0 /* TodoListViewController.swift */,
 			);
 			path = Controllers;
@@ -210,6 +210,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Todoit/Pods-Todoit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
@@ -218,6 +219,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
