@@ -1,2 +1,2 @@
 # ToDoIt
-An ios app - a to do list app that uses SQLite database
+An ios app - a colorful to do list app that uses Realm database
