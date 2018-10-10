@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 class CategoryViewController: SwipeTableViewController {
     
@@ -20,6 +21,8 @@ class CategoryViewController: SwipeTableViewController {
         
         loadCategories()
         
+        tableView.separatorStyle = .none
+        
     }
     
     //MARK: - TableView Datasource Methods
@@ -28,13 +31,28 @@ class CategoryViewController: SwipeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
-        
+        if let category = categories?[indexPath.row] {
         cell.textLabel?.text = categories?[indexPath.row].name ?? "Add a new category to get started!"
-        
+        guard let categoryColor = UIColor(hexString: category.color) else {fatalError() }
+        cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+        cell.backgroundColor = categoryColor
+
+        }
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+//        if let category = categories?[indexPath.row]{
+//            cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
+//            guard let categoryColor = UIColor(hexString: category.color) else {fatalError()}
+//            cell.textLabel?.textColor = ContrastColorOf(categoryColor, returnFlat: true)
+//            cell.backgroundColor = categoryColor
+//        }
+//        return cell
+//    }
+    
     
     //MARK: - Data Manipulation Methods
     
@@ -85,6 +103,7 @@ class CategoryViewController: SwipeTableViewController {
             
             let newCategory = Category()
             newCategory.name = textField.text!
+            newCategory.color = UIColor.randomFlat.hexValue()
             
             self.save(category: newCategory)
             
